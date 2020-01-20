@@ -1,7 +1,19 @@
+// welcome
+let getName = localStorage.getItem('Name')
+let addName = document.getElementById('welcome')
+addName.innerText= `Welcome ${getName}`
+
+
+
+
+
 function register() {
+
+    let name = document.getElementById("inputName").value
     let email = document.getElementById("inputEmail").value
     let password = document.getElementById("inputpassword").value
 
+    localStorage.setItem("Name", name)
     localStorage.setItem("Email", email)
     localStorage.setItem("Password", password)
 
@@ -20,16 +32,17 @@ function login() {
 
     let emailRegistered = localStorage.getItem('Email')
     let passwordRegistered = localStorage.getItem('Password')
-
-
+    
+  
     if (email === emailRegistered && password === passwordRegistered && email !== undefined && password !== undefined) {
-        
+    
         window.location = "homepage.html"
-
+        
     } else {
         document.getElementById('error-message').innerHTML = 'Log in failed, please input your email and password !'
     }
 }
+
 
 
 function logout() {
